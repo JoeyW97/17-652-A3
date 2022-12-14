@@ -1,0 +1,16 @@
+syntax = "proto2";
+import "book.proto";
+
+message InventoryItem {
+    required string inventoryId = 1;
+    oneof type {
+        Book item = 2;
+    }
+
+    enum Status {
+        AVAILABLE = 1;
+        TAKEN = 2;
+    }
+
+    optional Status status = 3 [default = AVAILABLE];
+}

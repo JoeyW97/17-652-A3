@@ -1,0 +1,11 @@
+syntax = "proto2";
+import "book.proto";
+
+service InventorySystem {
+    rpc CreateBook (Book) returns (BookISBN) {}
+    rpc GetBook (BookISBN) returns (Book) {}
+}
+
+message BookISBN {
+    optional string ISBN = 1;
+}
